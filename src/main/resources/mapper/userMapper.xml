@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myz.shirodemo.dao.UserMapper">
+
+    <select id="queryInfoByUsername" parameterType="java.lang.String" resultType="java.util.Map">
+        SELECT id, username, password FROM user_t WHERE username = #{username,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertData"  parameterType="java.util.Map">
+        INSERT INTO user_t ( id, username,password )
+        VALUES ( #{id, jdbcType=VARCHAR}, #{username, jdbcType=VARCHAR},#{password, jdbcType=VARCHAR});
+    </insert>
+
+
+</mapper>
